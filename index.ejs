@@ -95,6 +95,10 @@ body {
   overflow: hidden;
   transition: max-height 0.3s;
 }
+.pub__body a {
+  text-decoration: none;
+  color: inherit;
+}
 .pub.active .pub__body {
   max-height: 300px;
 }
@@ -174,7 +178,10 @@ body {
           <div class="pub__area"><%= pub.properties['Area'] %></div>
         </div>
         <div class="pub__body">
-          <div class="pub__address"><%- pub.properties['Address'].replace(/,/g, ',<br>') %></div>
+          <div class="pub__address">
+            <a href="https://www.google.com/maps/search/?api=1&query=<%= pub.properties['Name'] %>,%20<%= pub.properties['Address'] %>" target="_blank"><%- pub.properties['Address'].replace(/,/g, ',<br>') %>
+            </a>
+          </div>
         </div>
       </div>
     <% }) %>
